@@ -1,4 +1,7 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    exit("Acceso denegado");
+}
 
 define('CLAVE', '6Ldsf5spAAAAAKpGsIjUhYZpm462Cp-6n-8Y9T_O');
 
@@ -71,7 +74,7 @@ if($datos['success'] == 1 && $datos['score'] >= 0.5){
         try {
             if ($stmt->execute()) {
                 echo '<h1>Proceso de registro</h1>
-                <p id="mensaje">Registro completado. Ahora ya puedes hacer <a href="login.php">log in</a>.</p>
+                <p id="mensaje">Registro completado. Cuando seas aceptado por un administrador, entonces podrás hacer <a href="login.php">log in</a>.</p>
                 <p>Puedes ver los datos que devuelve la solicitud reCAPTCHA en la consola.<p/>';
             }
         } catch (mysqli_sql_exception $e) {
