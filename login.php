@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $result->fetch_assoc();
 
     if ($user) {
-        if (password_verify($_POST["password"], $user["password_hash"])){
+        if (password_verify($_POST["password"], $user["password_hash"])) {
             if ($user["status"] == 'rejected') {
                 echo "Su solicitud de registro ha sido rechazada. Por favor, póngase en contacto con el administrador para obtener más información.";
                 exit;
@@ -32,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             exit;
         } else {
-            echo "Contraseña incorrecta";
+            echo "Credenciales incorrectas";
         }
     } else {
-        echo "Usuario no encontrado";
+        echo "Credenciales incorrectas";
     }
 }
 
